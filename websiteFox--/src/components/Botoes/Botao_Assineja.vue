@@ -18,6 +18,7 @@ const handleClick = () => {
   background: linear-gradient(90deg, #db0e35 0%, #820032 100%);
   color: white;
   font-weight: bold;
+  font-family: Teko , sans-serif;
   font-size: 2.5rem;
   border: none;
   cursor: pointer;
