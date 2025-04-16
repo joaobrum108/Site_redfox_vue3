@@ -3,7 +3,11 @@
     <div class="header-content">
       <div class="logo-container">
         <router-link to="/">
-          <img src="../../assets/escritaPrancheta 4@3x 1.svg" alt="Redfox Internet" class="logo" />
+          <img
+            src="../../assets/escritaPrancheta 4@3x 1.svg"
+            alt="Redfox Internet"
+            class="logo"
+          />
         </router-link>
       </div>
 
@@ -14,7 +18,9 @@
             @mouseenter="showInternet = true"
             @mouseleave="showInternet = false"
           >
-            <span class="nav-link">Internet <span class="dropdown-arrow">▼</span></span>
+            <span class="nav-link"
+              >Internet <span class="dropdown-arrow">▼</span></span
+            >
             <transition name="fade">
               <div v-if="showInternet" class="dropdown-content">
                 <router-link
@@ -34,7 +40,9 @@
             @mouseenter="showCliente = true"
             @mouseleave="showCliente = false"
           >
-            <span class="nav-link">Área do Cliente <span class="dropdown-arrow">▼</span></span>
+            <span class="nav-link"
+              >Área do Cliente <span class="dropdown-arrow">▼</span></span
+            >
             <transition name="fade">
               <div v-if="showCliente" class="dropdown-content">
                 <router-link
@@ -58,7 +66,9 @@
             @mouseenter="showRedfox = true"
             @mouseleave="showRedfox = false"
           >
-            <span class="nav-link">A Redfox <span class="dropdown-arrow">▼</span></span>
+            <span class="nav-link"
+              >A Redfox <span class="dropdown-arrow">▼</span></span
+            >
             <transition name="fade">
               <div v-if="showRedfox" class="dropdown-content">
                 <router-link
@@ -85,61 +95,58 @@
   </div>
 </template>
 
-  
-  <script setup>
-  import { ref, onMounted, onUnmounted } from "vue";
-  
-  const telamobile = ref(false);
-  const teladesktop = ref(true);
-  const menuAberto = ref(false);
-  const showInternet = ref(false);
-  const showCliente = ref(false);
-  const showRedfox = ref(false);
-  
-  const toggleMenu = () => {
-    menuAberto.value = !menuAberto.value;
-  };
-  
-  const verificarTamanhoTela = () => {
-    if (window.innerWidth <= 600) {
-      teladesktop.value = false;
-      telamobile.value = true;
-    } else {
-      teladesktop.value = true;
-      telamobile.value = false;
-    }
-  };
-  
-  onMounted(() => {
-    verificarTamanhoTela();
-    window.addEventListener("resize", verificarTamanhoTela);
-  });
-  
-  onUnmounted(() => {
-    window.removeEventListener("resize", verificarTamanhoTela);
-  });
-  
-  const internetItems = [
-    { title: "Residencial", url: "/" },
-    { title: "Para Empresas", url: "/para-empresas" },
-  ];
-  
-  const clienteItems = [
-    { title: "2 Via do Boleto", url: "/2via" },
-    { title: "Central de Apps", url: "/CentralApp" },
-    { title: "Tv RedFox", url: "/Tvredfox" },
-    { title: "Beneficios e Descontos", url: "/BeneficiosDescontos" },
-  ];
-  
-  const redfoxItems = [
-    { title: "Sobre", url: "/Sobre" },
-    { title: "Trabalhe Conosco", url: "/TrabalheConosco" },
-    { title: "Contratos", url: "/Contratos" },
-  ];
-  </script>
-  
-  <style scoped>
+<script setup>
+import { ref, onMounted, onUnmounted } from "vue";
 
+const telamobile = ref(false);
+const teladesktop = ref(true);
+const menuAberto = ref(false);
+const showInternet = ref(false);
+const showCliente = ref(false);
+const showRedfox = ref(false);
+
+const toggleMenu = () => {
+  menuAberto.value = !menuAberto.value;
+};
+
+const verificarTamanhoTela = () => {
+  if (window.innerWidth <= 600) {
+    teladesktop.value = false;
+    telamobile.value = true;
+  } else {
+    teladesktop.value = true;
+    telamobile.value = false;
+  }
+};
+
+onMounted(() => {
+  verificarTamanhoTela();
+  window.addEventListener("resize", verificarTamanhoTela);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", verificarTamanhoTela);
+});
+
+const internetItems = [
+  { title: "Residencial", url: "/" },
+  { title: "Para Empresas", url: "/Empresas" },
+];
+
+const clienteItems = [
+  { title: "2 Via do Boleto", url: "/2ViaBoleto" },
+  { title: "Tv RedFox", url: "/Tvredfox" },
+  { title: "Beneficios e Descontos", url: "/BeneficiosDescontos" },
+];
+
+const redfoxItems = [
+  { title: "Sobre", url: "/Sobre" },
+  { title: "Trabalhe Conosco", url: "/TrabalheConosco" },
+  { title: "Contratos", url: "/Contratos" },
+];
+</script>
+
+<style scoped>
 :root {
   --primary: #db0e35;
   --primary-dark: #a60d2c;
@@ -152,17 +159,18 @@
 }
 .header-wrapper {
   position: relative;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.2s, transform 0.2s;
 }
-.fade-enter-from, .fade-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
   transform: translateY(-10px);
 }
-
 
 .header-container {
   background-color: #db0e35;
@@ -198,7 +206,6 @@
 .logo:hover {
   transform: scale(1.05);
 }
-
 
 .main-nav {
   display: flex;
@@ -249,35 +256,33 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: white; 
+  background-color: white;
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   min-width: 200px;
   padding: 8px 0;
   z-index: 10;
-  border: 1px solid #f0f0f0; 
+  border: 1px solid #f0f0f0;
 }
 
 .dropdown-item {
-  padding: 12px 16px; 
+  padding: 12px 16px;
   color: #333;
   font-size: 0.9rem;
   transition: all 0.2s;
   display: block;
-  font-weight: 500; 
+  font-weight: 500;
 }
 
 .dropdown-item:hover {
-  background-color: #f8f8f8; 
-  color: #db0e35; 
+  background-color: #f8f8f8;
+  color: #db0e35;
   padding-left: 20px;
 }
-
 
 .dropdown-item:not(:last-child) {
   border-bottom: 1px solid #f0f0f0;
 }
-
 
 .cta-section {
   margin-left: 24px;
@@ -294,7 +299,7 @@
   display: flex !important;
   align-items: center !important;
   gap: 8px !important;
-  border : none !important;
+  border: none !important;
   cursor: pointer;
 }
 
@@ -307,7 +312,6 @@
 .btn-text {
   transition: transform 0.3s;
   color: #e0e0e0;
-  
 }
 
 .btn-icon {
@@ -330,7 +334,7 @@
   .header-content {
     padding: 0 16px;
   }
-  
+
   .nav-item {
     padding: 0 12px;
   }
