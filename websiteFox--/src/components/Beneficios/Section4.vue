@@ -21,12 +21,8 @@
         <Botao_Indicar />
       </div>
     </div>
-    <div class="image-container">
-      <img
-        src="../../assets/ii.svg"
-        alt="Ilustração do programa de indicações"
-      />
-    </div>
+
+    <img src="../../assets/ii.svg" alt="Ilustração do programa de indicações" />
   </div>
 </template>
 
@@ -35,17 +31,21 @@ import Botao_Indicar from "../Botoes/Botao_Indicar.vue";
 </script>
 
 <style scoped>
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
 .container {
   display: flex;
+  width: 100%;
+  height: 69vh;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
 }
 
 .text-content {
-  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -64,12 +64,12 @@ p {
 .image-container {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: end;
 }
 
 img {
   max-width: 100%;
-  height: auto;
+  height: 650px;
 }
 
 @media (max-width: 768px) {
